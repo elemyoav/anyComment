@@ -36,6 +36,7 @@ public class CommentService {
         comment = CommentMapper.mapToComment(commentDto, comment);
         String publicId = randomPublicId();
         comment.setPublicId(publicId);
+        commentDto.setPublicId(publicId);
 
         Optional<User> userOpt = userRepository.getUserByUserName(comment.getUserName());
         if(userOpt.isEmpty()){

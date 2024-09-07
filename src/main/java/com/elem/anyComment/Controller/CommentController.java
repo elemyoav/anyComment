@@ -5,6 +5,7 @@ import com.elem.anyComment.Dto.UserDto;
 import com.elem.anyComment.service.CommentService;
 import com.elem.anyComment.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -62,7 +63,8 @@ public class CommentController {
         if(!isCreated){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        String location = "comments/" + comment.getUserName() + "/" + comment.getPublicId();
+        return ResponseEntity.status(HttpStatus.CREATED).header(HttpHeaders.LOCATION, location).build();
     }
 
     @PutMapping("comments/{userName}/{publicId}")
