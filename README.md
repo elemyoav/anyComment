@@ -34,3 +34,9 @@ Before running the application, make sure you have the following installed:
 ## Postman Collection
 
 To test the API, import the Postman collection file provided in the repository.
+
+## Api Documentation
+after running the application, you can access the API documentation by visiting the following URL:
+```
+http://localhost:8080/swagger-ui.html
+```
